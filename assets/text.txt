@@ -1,0 +1,37 @@
+CREATE FUNCTION get_karyawan_with_id(id_kar VARCHAR(6))
+RETURNS TABLE(karyawan_id VARCHAR(6), karyawan_nama VARCHAR(30))
+AS $$
+BEGIN
+  RETURN QUERY
+  SELECT id_karyawan, nama
+  FROM karyawan
+  WHERE id_karyawan = id_kar;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE FUNCTION get_departemen_with_id(id_departemen INT)
+RETURNS TABLE(departemen_id INT, departemen_nama VARCHAR(30))
+AS $$
+BEGIN
+  RETURN QUERY
+  SELECT * 
+  FROM departemen
+  WHERE id_dep = id_departemen;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_departemen_with_id(3);
+
+
+// Unused
+CREATE FUNCTION count_departemen(departemen_id)
+RETUNRS INT
+AS $$
+BEGIN
+  SELECT COUNT(*)
+  FROM karwayan
+  WHERE id_dep = departemen_id;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT k.id_karyawan, k.nama, k.id_dep, d.kode_dep, d.nama_dep FROM karyawan AS k LEFT JOIN departemen AS d ON k.id_dep = d.id_dep;
