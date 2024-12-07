@@ -8,9 +8,11 @@ Worksheet untuk responsi ini dapat diakses [di sini.](./assets/R2_493813_Sulaima
 
 ## Tampilan Interface Aplikasi Windows Forms
 a. `Form1.cs [Design]`
+
 ![Form1.cs](./assets/interface-vs.png)
 
 b. Hasil Build
+
 ![Hasil build](./assets/interface-compiled.png)
 
 ## Kode Tombol `Insert`, `Edit`, dan `Delete`
